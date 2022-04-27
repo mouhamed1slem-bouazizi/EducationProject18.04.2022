@@ -1,3 +1,40 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  
+    <ion-menu contentId="main-content" type="push" autoHide="false">
+      <ion-content>
+        <div class="menu-header-bg"></div>
+        <div class="header-content">
+          <img src="assets/img/photo.jpg">
+          <ion-label>
+            <h1>&nbsp;محمد إسلام</h1>
+            <p>&nbsp; مبرمج</p>
+          </ion-label>
+        </div>
+
+        <ion-list class="menu-items" lines="none">
+          <ion-item (click)="toggleMenu()">
+            <ion-icon name="pie-chart-outline"></ion-icon>الرئيسية
+          </ion-item>
+          <ion-item>
+            <ion-icon name="browsers-outline"></ion-icon>تجربة
+          </ion-item>
+          <ion-item>
+            <ion-icon name="flash"></ion-icon>درووس
+          </ion-item>
+          <ion-item>
+            <ion-icon name="chatbubble-ellipses-outline"></ion-icon>رسائل
+          </ion-item>
+          <ion-item>
+            <ion-icon name="exit-outline"></ion-icon>خروج
+          </ion-item>
+        </ion-list>
+
+
+
+
+        
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  
 </ion-app>

@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SplashPageRoutingModule } from './splash-routing.module';
 
 import { SplashPage } from './splash.page';
-import { Tab1Page } from 'src/app/tab1/tab1.page';
+
 
 @NgModule({
   imports: [
@@ -16,6 +16,6 @@ import { Tab1Page } from 'src/app/tab1/tab1.page';
     IonicModule,
     SplashPageRoutingModule
   ],
-  declarations: [SplashPage, Tab1Page]
+  declarations: [SplashPage]
 })
 export class SplashPageModule {}

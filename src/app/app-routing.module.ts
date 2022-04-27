@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { redirectUnauthorizedTo, redirectLoggedInTo, canActivate } from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['/psignin'])
 
 const routes: Routes = [
+  
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },  {
-    path: 'splash',
-    loadChildren: () => import('./pages/splash/splash.module').then( m => m.SplashPageModule)
+    loadChildren: () => import('./pages/splash/splash.module').then( m => m.SplashPageModule),
+    //...canActivate(redirectLoggedInToHome)
   },
   {
     path: 'pstart',
@@ -15,11 +18,13 @@ const routes: Routes = [
   },
   {
     path: 'psignin',
-    loadChildren: () => import('./pages/psignin/psignin.module').then( m => m.PsigninPageModule)
+    loadChildren: () => import('./pages/psignin/psignin.module').then( m => m.PsigninPageModule),
+    //...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'psignup',
-    loadChildren: () => import('./pages/psignup/psignup.module').then( m => m.PsignupPageModule)
+    loadChildren: () => import('./pages/psignup/psignup.module').then( m => m.PsignupPageModule),
+    //...canActivate(redirectLoggedInToHome)
   }
 
 ];
